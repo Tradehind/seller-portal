@@ -1,0 +1,214 @@
+<div class="seller-products">
+
+    <div class="row top-row">
+        <div class="col-md-6 col-lg-6">
+           
+        </div>
+        <div class="col-md-6 col-lg-6 text-right">
+            <button (click)="openProductAdd()" type="button" class="btn btn-success">Add Product
+                <i class="fas fa-plus fa-fw" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 col-lg-3 " *ngFor="let product of productData">
+            <div class="card products">
+                <i class="fas fa-trash fa-fw del-icon" aria-hidden="true" (click)="inactiveProduct(product.id)"></i>
+                <img *ngIf="product.primary_image" class="card-img-top"
+                    src="{{productImgPath}}{{product.primary_image}}" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title"> <strong>{{product.name}}</strong></h4>
+                    <p class="card-text">₹ {{product.price}}</p>
+                    <p class="card-text">{{product.description | slice:0:100 }}</p>
+                    <a class="btn btn-primary" (click)="showProduct(product)">See More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-records-div" *ngIf="showNoRecords">
+            <p class="no-records">No records found using this criteria</p>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: 20px">ADD PRODUCT</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <form enctype="multipart/form-data" (ngSubmit)="uploadFiles(productAddform.value)" #productAddform="ngForm"
+                id="productform">
+                <div class="modal-body">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" name="name" ngModel class="form-control" id="product-name"
+                                placeholder="Product Name" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="product-price">Price</label>
+                            <input type="number" name="price" ngModel class="form-control" id="product-price"
+                                placeholder="Price" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="product-desc">Description</label>
+                        <textarea type="text" name="description" ngModel class="form-control" id="product-desc"
+                            placeholder="Product Description"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="product-spec">Specification</label>
+                        <textarea type="text" name="specification" ngModel class="form-control" id="product-spec"
+                            placeholder="Product Specification"> </textarea>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-6">
+                            <label for="cars">Category: </label>
+                            <div class="form-group col-md-12">
+
+                                <select class="form-control" id="product-name" placeholder="Category" ngModel
+                                    name="category_id" required (change)="getsubcategoryList($event.target)">
+                                    <option value="" selected disabled>Select Category</option>
+                                    <option *ngFor="let cats of categoryData" value="{{cats.id}}">{{cats.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cars">Sub-Category: </label>
+                            <select class="form-control" id="product-name" placeholder="Category" ngModel
+                                name="sub_sub_category_id" (change)="getsubsubcategoryList($event.target)">
+                                <option value="" selected disabled>Select Sub-Category</option>
+                                <option *ngFor="let subcats of subcategoryData" value="{{subcats.id}}">{{subcats.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cars">Sub-Sub-Category: </label>
+                            <select class="form-control" id="product-name" placeholder="Category" ngModel
+                                name="sub_sub_category_id" >
+                                <option value="" selected disabled>Select Sub-Sub-Category</option>
+                                <option *ngFor="let subsubcats of subsubcategoryData" value="{{subsubcats.id}}">{{subsubcats.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="product-img">Add product Image</label>
+                        <div *ngIf="showProductImg">
+                            <img [src]="showProductImg" alt="Selected Image">
+                          </div>
+                        <input type="file" (change)="handleProductImg($event.target)" class="form-control-file"
+                            id="product-img" name="file" ngModel />
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModel()">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!productAddform.valid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog edit-modal-width" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: 20px">EDIT PRODUCT</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <form *ngIf="productEditData" enctype="multipart/form-data" (ngSubmit)="uploadEditFiles(productEditform.value)" #productEditform="ngForm"
+                id="productform">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" [(ngModel)]="productEditData.name" name="name" class="form-control" id="product-name"
+                                placeholder="Product Name" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="product-price">Price</label>
+                            <input type="number" [(ngModel)]="productEditData.price" name="price" class="form-control" id="product-price"
+                                placeholder="Price" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="product-desc">Description</label>
+                        <textarea type="text" [(ngModel)]="productEditData.description" name="description" class="form-control" id="product-desc"
+                            placeholder="Product Description"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="product-spec">Specification</label>
+                        <textarea type="text" name="specification" [(ngModel)]="productEditData.specification" class="form-control" id="product-spec"
+                            placeholder="Product Specification"> </textarea>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-6">
+                            <label for="cars">Category: </label>
+                            <div class="form-group col-md-12">
+
+                                <select class="form-control" id="product-name" placeholder="Category" [(ngModel)]="productEditData.category_id"
+                                    name="category_id" required (change)="getsubcategoryList($event.target)">
+                                    <option value="" selected disabled>Select Category</option>
+                                    <option *ngFor="let cats of categoryData" value="{{cats.id}}">{{cats.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cars">Sub-Category: </label>
+                            <select class="form-control" id="product-name" placeholder="Category" [(ngModel)]="productEditData.sub_category_id"
+                                name="sub_category_id" (change)="getsubsubcategoryList($event.target)">
+                                <option value="" selected disabled>Select Sub-Category</option>
+                                <option *ngFor="let subcats of subcategoryEditData" value="{{subcats.id}}" >{{subcats.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cars">Sub Sub Category: </label>
+                            <select class="form-control" id="product-name" placeholder="Category" [(ngModel)]="productEditData.sub_sub_category_id"
+                                name="sub_sub_category_id" >
+                                <option value="" selected disabled>Select Sub Sub Category</option>
+                                <option *ngFor="let subsubcats of subsubcategoryData" value="{{subsubcats.id}}">{{subsubcats.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="product-img">Update product Image</label><br>
+                        <img *ngIf="productEditData && !showEditProductImg" class="product-img"
+                        src="{{productImgPath}}{{productEditData.primary_image}}" alt="Card image">
+                        <div *ngIf="showEditProductImg">
+                            <img [src]="showEditProductImg" alt="Selected Image" class="product-img">
+                          </div>
+                        <input type="file" (change)="handleProductEditImg($event.target)" class="form-control-file"
+                            id="product-img" name="file" ngModel >
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModel()">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!productEditform.valid">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

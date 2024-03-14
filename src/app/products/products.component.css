@@ -1,0 +1,39 @@
+.seller-products {
+    margin: 30px;
+}
+
+.products {
+    margin: 20px;
+}
+
+.top-row {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.del-icon {
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    font-size: 20px;
+    color: #8b0202;
+    cursor: pointer;
+}
+
+.edit-modal-width {
+    max-width: 63vw !important;
+
+    textarea {
+        min-height: 150px;
+    }
+}
+
+.back{
+    cursor: pointer;
+    z-index: 99;
+    font-size: 25px;
+}
+
+.card-img-top{
+    height: 300px;
+}
