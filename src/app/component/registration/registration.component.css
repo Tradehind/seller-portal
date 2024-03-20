@@ -1,0 +1,45 @@
+.body-bg {
+    background-color: #dadada;
+    height: 100vh;
+    padding: 100px;
+}
+
+.register-bg {
+    background-image: url("../../../assets/img/register-bg.jfif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.register-container {
+    background-color: #f4f4f4;
+    padding: 50px;
+    padding-bottom: 0px !important;
+}
+
+.register-container h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+
+.register-container-right img {
+    height: 30rem;
+}
+
+.register-container-left {
+    line-height: 7rem;
+
+    h2 {
+        line-height: 0%;
+    }
+}
+
+.mobile-input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 23rem;
+    border: none;
+    line-height: 0%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
