@@ -1,1 +1,653 @@
-<p>seller-profile works!</p>
+<main>
+
+  <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3" style="text-align: center; margin: auto;">
+    <div (click)="onTabClick('contact-details')" [class.active]="activeTab == 'contact-details'" class="col tab-title">
+      Conatct Details
+    </div>
+    <div (click)="onTabClick('business-profile')" [class.active]="activeTab == 'business-profile'"
+      class="col tab-title">
+      Business Profile
+    </div>
+    <div (click)="onTabClick('website-pages')" [class.active]="activeTab == 'website-pages'" class="col tab-title">
+      Website Pages
+    </div>
+    <div (click)="onTabClick('rating-review')" [class.active]="activeTab == 'rating-review'" class="col tab-title">
+      Ratings & Reviews
+    </div>
+    <div (click)="onTabClick('share-catalog')" [class.active]="activeTab == 'share-catalog'" class="col tab-title">
+      Share Catalog
+    </div>
+    <div (click)="onTabClick('performance-reports')" [class.active]="activeTab == 'performance-reports'"
+      class="col tab-title">
+      Performance Reports
+    </div>
+  </div>
+
+  <div class="container mt-4">
+
+    <section *ngIf="activeTab == 'contact-details'">
+      <div class="tab-div">
+        <div class="tab-div-header">Conatct Details</div>
+        <form>
+          <div class="row from-text-groups">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Contact Person Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Full Name" id="staticEmail">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="inputDesignation" class="col-sm-4 col-form-label">Designation</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Designation" id="inputDesignation">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="staticNumber" class="col-sm-4 col-form-label">Mobile Number</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">+91</span>
+                <input type="text" class="form-control" placeholder="Mobile No." id="staticNumber">
+              </div>
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="staticNumber" class="col-sm-4 col-form-label">Alternate Mobile Number</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">+91</span>
+                <input type="text" class="form-control" placeholder="Alternate Mobile No." id="staticNumber">
+              </div>
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Email ID" id="staticEmail">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Alternate Email</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Alternate Email ID" id="staticEmail">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Landline Number</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <span class="input-group-text">+91</span>
+                <input type="text" class="form-control" placeholder="STD Code" id="staticLandNumber">
+                <input type="text" class="form-control" placeholder="Landline No." id="staticLandNumber">
+              </div>
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Alternate Landline Number</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <span class="input-group-text">+91</span>
+                <input type="text" class="form-control" placeholder="STD Code" id="staticLandNumber">
+                <input type="text" class="form-control" placeholder="Alternate Landline No." id="staticLandNumber">
+              </div>
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Fax Number</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <span class="input-group-text">+91</span>
+                <input type="text" class="form-control" placeholder="STD Code" id="staticLandNumber">
+                <input type="text" class="form-control" placeholder="Fax No." id="staticLandNumber">
+              </div>
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <div class="col text-right">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section *ngIf="activeTab == 'business-profile'">
+      <div class="tab-div mb-4">
+        <div class="tab-div-header">Business Profile</div>
+        <form>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">Company Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Company Name">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">Year of Establishment
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Year of Company's Establishment">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">CEO Name
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Company's CEO Name">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">Website URL
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="https://www.company-name.site">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">Google Business URL
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="https://www.company-name.business.site">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">Facebook Business URL
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="https://www.facebook.com/company-name/">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">Instagram Business URL
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="https://www.instagram.com/company-name/">
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <label class="col-sm-4 col-form-label">TradeHind Catalog URL
+            </label>
+            <div class="col-sm-8">
+              <div>
+                <a href="https://www.roljackgroup.com/">https://www.roljackgroup.com/</a>
+              </div>
+              <div>
+                <i>Get better visibility by sharing catalog on : </i>
+                <a href="" class="text-dark mr-2">
+                  <i class='fab fa-facebook'></i>
+                </a>
+                <a href="" class="text-dark mr-2">
+                  <i class='fab fa-instagram'></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <div class="col text-right">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="tab-div mb-4">
+        <div class="tab-div-header">Address</div>
+        <form>
+          <div class="row">
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">Pin Code</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="Pin Code">
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">City</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="Please enter city">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">State</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="Please enter state">
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">Country</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="Please enter country">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">Address <br> (Building No. / Floor)</label>
+                <div class="col-sm-8">
+                  <textarea class="form-control" placeholder="Apartment, studio, or floor" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">Address <br> (Area / Street)</label>
+                <div class="col-sm-8">
+                  <textarea class="form-control" placeholder="1234 Main St" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">Locality</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="Locality (Optional)">
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row from-text-groups">
+                <label class="col-sm-4 col-form-label">Landmark</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="Landmark (Optional)">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row from-text-groups">
+            <div class="col text-right">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <div *ngIf="activeTab == 'website-pages'" class="tab-div">
+      <div class="container tab-div-header">
+        Website Pages
+      </div>
+    </div>
+
+    <section *ngIf="activeTab == 'rating-review'">
+      <div class="tab-div mb-4">
+        <div class="tab-div-header" style="margin-bottom: 0;">Ratings & Reviews</div>
+
+        <div class="row" style="margin: auto; border-bottom: 1px solid #bbbbbb;">
+          <div class="col"
+            style="display: flex; flex-direction: column; padding: 20px 20px; border-right: 1px solid #bbbbbb;">
+            <div class="pb-3" style=" margin-bottom: auto;">
+              <div class="pb-2" style="font-size: 20px; font-weight: 600; text-align: center;">
+                Customer Reviews
+              </div>
+              <div class="align-self-center text-center">
+                <div class="d-flex justify-content-center">
+                  <div style="color: #fdc12a; margin-right: 10px;">
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star-half-alt'></i>
+                    <i class='far fa-star'></i>
+                  </div>
+                  <div class="rating-head"><span>4.5 </span>out of 5</div>
+                </div>
+                <div><span style="font-size: 14px; font-weight: 600;">8,597 global reviews</span></div>
+              </div>
+            </div>
+            <div class="">
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600;">5&nbsp;star</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100"
+                  aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                  <div class="progress-bar" style="width: 100%">100%</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600;">4&nbsp;star</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 100%;">
+                  <div class="progress-bar" style="width: 75%">75%</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600;">3&nbsp;star</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 100%;">
+                  <div class="progress-bar" style="width: 50%">50%</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600;">2&nbsp;star</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 100%;">
+                  <div class="progress-bar" style="width: 25%">25%</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600;">1&nbsp;star</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 100%;">
+                  <div class="progress-bar" style="width: 0%">0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col"
+            style="display: flex; flex-direction: column; padding: 20px 20px; border-right: 1px solid #bbbbbb;">
+            <div class="pb-4" style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: auto;">
+              User Statisfaction
+            </div>
+            <div class="">
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; width: 20%;">Excellent</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 70%;">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; text-align: end; width: 10%;">2379</div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; width: 20%;">Very Good</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 70%;">
+                  <div class="progress-bar" style="width: 25%"></div>
+                </div>
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; text-align: end; width: 10%;">512</div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; width: 20%;">Average</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 70%;">
+                  <div class="progress-bar" style="width: 15%"></div>
+                </div>
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; text-align: end; width: 10%;">132</div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; width: 20%;">Poor</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 70%;">
+                  <div class="progress-bar" style="width: 5%"></div>
+                </div>
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; text-align: end; width: 10%;">15</div>
+              </div>
+              <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; width: 20%;">Terrible</div>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 70%;">
+                  <div class="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="mx-2" style="font-size: 12px; font-weight: 600; text-align: end; width: 10%;">0</div>
+              </div>
+            </div>
+          </div>
+          <div class="col" style="display: flex; flex-direction: column; padding: 20px 20px;">
+            <div class="pb-4" style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: auto;">
+              Sorting Option
+            </div>
+            <div class="">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Top Reviews
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Most Recent First
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                <label class="form-check-label" for="flexRadioDefault3">
+                  Oldest First
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                <label class="form-check-label" for="flexRadioDefault4">
+                  Highest Reviews First
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                <label class="form-check-label" for="flexRadioDefault5">
+                  Lowest Reviews First
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                <label class="form-check-label" for="flexRadioDefault6">
+                  Reviews With Comment First
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+                <label class="form-check-label" for="flexRadioDefault7">
+                  Reviews With Images First
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin: auto;">
+          <div class="col" style="padding: 0; border-right: 1px solid #bbbbbb;">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small>3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small class="text-body-secondary">3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small class="text-body-secondary">3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small>3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small class="text-body-secondary">3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small class="text-body-secondary">3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small>3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small class="text-body-secondary">3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-2">Customer Name</h5>
+                  <small class="text-body-secondary">3 days ago</small>
+                </div>
+                <div style="font-weight: 600;">Product : Cone Crusher</div>
+                <small style="color: #fdc12a;">
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                  <i class='fas fa-star'></i>
+                </small>
+                <div class="mt-2">
+                  <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores natus, autem perferendis, vero
+                    labore delectus dignissimos harum dolorum, ut facere inventore placeat accusamus maiores odio!
+                    Consequatur delectus autem facere? Ullam.
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col" style="padding: 0;"></div>
+        </div>
+      </div>
+    </section>
+
+    <div *ngIf="activeTab == 'share-catalog'" class="tab-div">
+      <div class="container tab-div-header">
+        Share Catalog
+      </div>
+    </div>
+    <div *ngIf="activeTab == 'performance-reports'" class="tab-div">
+      <div class="container tab-div-header">
+        Performance Reports
+      </div>
+    </div>
+  </div>
+
+</main>

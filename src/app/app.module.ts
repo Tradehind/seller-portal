@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { SellerProfileComponent } from './seller-profile/seller-profile.component';
+import { LeadManagerComponent } from './lead-manager/lead-manager.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { RegistrationComponent } from './component/registration/registration.com
     HeaderComponent,
     FooterComponent,
     ProductsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SellerProfileComponent,
+    LeadManagerComponent
   ],
   imports: [
     BrowserModule,
@@ -33,4 +37,5 @@ import { RegistrationComponent } from './component/registration/registration.com
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
