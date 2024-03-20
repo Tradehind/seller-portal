@@ -11,6 +11,8 @@ import { ProductsComponent } from './products/products.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SellerProfileComponent } from './seller-profile/seller-profile.component';
+import { LeadManagerComponent } from './lead-manager/lead-manager.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
-    ProductsComponent
+    ProductsComponent,
+    SellerProfileComponent,
+    LeadManagerComponent
   ],
   imports: [
     BrowserModule,
@@ -31,4 +35,5 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
